@@ -7,7 +7,7 @@ function createGrid(size){
 
     for (let i = 0; i < (size*size); i++){
         let square = document.createElement("div");
-        square.addEventListener("mouseover", colorSquare)
+        square.addEventListener("click ", colorSquare)
         square.style.backgroundColor = "white";
         grid.insertAdjacentElement("beforeend", square);
     }
