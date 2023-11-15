@@ -1,31 +1,37 @@
-var mouseDown  = 0;
-
+var mouseDown = 0;
 function createGrid(size){
     const grid = document.querySelector(".grid");
-    div.addEventListener("click",); //Check if the div has been clicked on
-    let squares = grid.querySelectorAll("div");
-    squares.forEach((div) => div.remove());
+    let currentSquares = grid.querySelectorAll("div");
+    currentSquares.forEach((div) => div.remove());
     grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
     for (let i = 0; i < (size*size); i++){
-        let square = document.createElement("div");
-        square.addEventListener("mouseover", colorSquare)
-        square.style.backgroundColor = "white";
-        grid.insertAdjacentElement("beforeend", square);
+        let newSquare = document.createElement("div");
+        newSquare.addEventListener("mouseover", colorSquare)
+        newSquare.style.backgroundColor = "white";
+        grid.insertAdjacentElement("beforeend", newSquare);
     }
 }
 
-createGrid(16);
+//Initialise Grid 
+createGrid(16); 
 
 function colorSquare(){
+    if (mouseDown != 0) 
     this.style.backgroundColor = "black";
 }
 
-function mouseclick(){
-    ++mouseDown;
+document.body.onmousedown = function() { 
+  ++mouseDown;
 }
-//https://stackoverflow.com/questions/322378/javascript-check-if-mouse-button-down
+document.body.onmouseup = function() {
+  --mouseDown;
+}
+
+
+
+
 
 
 
