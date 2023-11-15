@@ -17,9 +17,10 @@
     <main class="main">
         <div class="grid"></div>
         <div class="sizeSlider">
-            <input type="range" min="2" max="64" value="16" class="slider" step="8" onchange="createGrid(this.value)">
+            <input type="range" min="2" max="64" value="16" class="slider" step="6" oninput="this.nextElementSibling.value = this.value" onchange="createGrid(this.value)">
+            <output>16</output>
         </div>
     </main>
 </body>
 <script src="javascript.js"></script>
-    </html>
+</html>
